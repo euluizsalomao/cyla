@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CYLA - Amigos</title>
+<link rel="stylesheet" href="cyla.css">
+<script src="seed.js"></script>
+<script src="presets.js"></script>
+<script src="storage.js"></script>
+<script src="app.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-icon"><i class="ti ti-shield-check"></i></div>
+      <div><div class="brand-name">CYLA</div><div class="brand-sub">Control Your Life Again</div></div>
+    </div>
+    <div class="sidebar-user">
+      <div class="user-avatar">U</div>
+      <div><div class="user-name">Usuário</div><div class="user-handle">@usuario</div></div>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="home.html" class="nav-link"><i class="ti ti-home"></i> Início</a>
+      <a href="progresso.html" class="nav-link"><i class="ti ti-chart-bar"></i> Progresso</a>
+      <a href="habitos.html" class="nav-link"><i class="ti ti-list-check"></i> Meus hábitos</a>
+      <a href="amigos.html" class="nav-link active"><i class="ti ti-users"></i> Amigos</a>
+      <a href="perfil.html" class="nav-link"><i class="ti ti-user-circle"></i> Meu perfil</a>
+    </nav>
+    <div class="sidebar-reg">
+      <a href="registro.html" class="btn-register"><i class="ti ti-plus"></i> Registrar hoje</a>
+    </div>
+  </aside>
+  <div class="main-content">
+    <div class="topbar">
+      <div class="topbar-brand">
+        <div class="brand-icon"><i class="ti ti-shield-check"></i></div>
+        <span class="topbar-name">CYLA</span>
+      </div>
+      <div class="topbar-avatar">U</div>
+    </div>
+    <div class="page">
+      <div class="page-header">
+        <div class="page-title">Amigos</div>
+        <a href="convidar-amigos.html" class="btn-primary" style="width:auto;padding:8px 16px;font-size:13px;text-decoration:none;">
+          <i class="ti ti-user-plus"></i> Convidar
+        </a>
+      </div>
+
+      <!-- Filtros de vício -->
+      <div class="filter-tabs">
+        <div class="filter-tab active" onclick="filtrarAmigos(this, null)">Geral</div>
+      </div>
+
+      <!-- 1. RANKING -->
+      <div class="cyla-card">
+        <div class="card-label ranking-label">RANKING</div>
+        <div class="podium">
+          <div class="podium-item second">
+            <div class="podium-avatar" style="background:var(--bg-hover);color:var(--text-secondary);">-</div>
+            <div class="podium-name">-</div>
+            <div class="podium-seq"></div>
+            <div class="podium-base"><div class="podium-pos">2</div></div>
+          </div>
+          <div class="podium-item first">
+            <div class="podium-star">★</div>
+            <div class="podium-avatar" style="background:var(--amber-darker);color:var(--amber-light);">-</div>
+            <div class="podium-name">-</div>
+            <div class="podium-seq"></div>
+            <div class="podium-base"><div class="podium-pos">1</div></div>
+          </div>
+          <div class="podium-item third">
+            <div class="podium-avatar" style="background:var(--purple-darker);color:var(--purple-light);">-</div>
+            <div class="podium-name">-</div>
+            <div class="podium-seq"></div>
+            <div class="podium-base"><div class="podium-pos">3</div></div>
+          </div>
+        </div>
+        <div id="ranking-lista" style="margin-top:8px;"></div>
+      </div>
+
+      <!-- 2. VOCÊ ESTÁ EM -->
+      <div class="position-card">
+        <div class="position-left">
+          <div class="position-label">Você está em</div>
+          <div class="position-val">-</div>
+          <div class="position-insight">Continue assim!</div>
+        </div>
+        <div class="position-right">
+          <div class="position-right-label">Para alcançar o 1º</div>
+          <div class="position-right-val"></div>
+        </div>
+      </div>
+
+      <!-- 3. PRIVACIDADE -->
+      <div class="cyla-card" id="privacidade-card">
+        <div class="card-label">Privacidade</div>
+        <div class="toggle-row-app">
+          <div class="toggle-row-info">
+            <div class="toggle-row-label">Aparecer no ranking</div>
+          </div>
+          <div class="toggle-app on" id="toggle-aparecer"><div class="toggle-app-dot"></div></div>
+        </div>
+        <div class="toggle-row-app" id="row-visivel-vicio" style="display:none;">
+          <div class="toggle-row-info">
+            <div class="toggle-row-label" id="label-visivel-vicio">Aparecer no ranking deste vício</div>
+          </div>
+          <div class="toggle-app" id="toggle-visivel-vicio"><div class="toggle-app-dot"></div></div>
+        </div>
+      </div>
+
+      <!-- 4. SOLICITAÇÕES PENDENTES -->
+      <div class="cyla-card" id="solicitacoes-card">
+        <div class="card-label">Solicitações pendentes</div>
+        <div class="solicitation-row" style="display:none;">
+          <div class="solicitation-avatar">U</div>
+          <div class="solicitation-name">Usuário</div>
+          <div class="solicitation-btns">
+            <button class="sol-accept">Aceitar</button>
+            <button class="sol-reject">Recusar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. LISTA DE AMIGOS -->
+      <div class="cyla-card" id="lista-amigos-card">
+        <div class="card-label">Meus amigos</div>
+      </div>
+
+    </div>
+    <nav class="bottom-nav">
+      <a href="home.html" class="bnav-item"><i class="ti ti-home"></i><span>Início</span></a>
+      <a href="progresso.html" class="bnav-item"><i class="ti ti-chart-bar"></i><span>Progresso</span></a>
+      <a href="registro.html" class="bnav-item"><div class="bnav-fab"><i class="ti ti-plus"></i></div></a>
+      <a href="amigos.html" class="bnav-item active"><i class="ti ti-users"></i><span>Amigos</span></a>
+      <a href="perfil.html" class="bnav-item"><i class="ti ti-user-circle"></i><span>Perfil</span></a>
+    </nav>
+  </div>
+</div>
+</body>
+</html>

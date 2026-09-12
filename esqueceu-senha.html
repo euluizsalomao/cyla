@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CYLA - Recuperar senha</title>
+<link rel="stylesheet" href="auth.css">
+<script src="seed.js"></script>
+<script src="presets.js"></script>
+<script src="storage.js"></script>
+<script src="app.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="wrapper">
+  <a href="login.html" class="back-link"><i class="ti ti-arrow-left"></i> Voltar</a>
+  <div class="logo-area">
+    <div class="logo-icone"><i class="ti ti-shield-check"></i></div>
+    <div class="logo-texto">
+      <h2>CYLA</h2>
+      <span>Control Your Life Again</span>
+    </div>
+  </div>
+
+  <!-- Etapa 1: confirmar e-mail -->
+  <div id="es-form-view">
+    <h1>Esqueceu a senha?</h1>
+    <p class="subtitulo">Digite seu e-mail para recuperar o acesso</p>
+    <form id="form-esqueceu">
+      <div class="input-box">
+        <input type="email" id="es-email" placeholder="seu@email.com" required>
+        <i class="ti ti-mail"></i>
+      </div>
+      <div id="es-erro" style="display:none;color:#D85A30;font-size:13px;text-align:center;margin:-4px 0 12px;"></div>
+      <button type="submit" class="btn">Continuar</button>
+    </form>
+  </div>
+
+  <!-- Etapa 2: nova senha -->
+  <div id="es-reset-view" style="display:none;">
+    <h1>Nova senha</h1>
+    <p class="subtitulo">Defina uma nova senha para sua conta</p>
+    <div class="input-box" style="margin-top:18px;">
+      <input type="password" id="es-nova-senha" placeholder="Nova senha" required>
+      <i class="ti ti-lock"></i>
+    </div>
+    <div class="input-box">
+      <input type="password" id="es-confirmar-senha" placeholder="Confirmar nova senha" required>
+      <i class="ti ti-lock-check"></i>
+    </div>
+    <div id="es-reset-erro" style="display:none;color:#D85A30;font-size:13px;text-align:center;margin:-4px 0 12px;"></div>
+    <button type="button" id="es-salvar-senha" class="btn">Salvar nova senha</button>
+  </div>
+
+  <!-- Etapa 3: sucesso -->
+  <div id="es-success-view" style="display:none;">
+    <div class="success-box">
+      <div class="success-icon"><i class="ti ti-circle-check"></i></div>
+      <div class="success-title">Senha redefinida!</div>
+      <p class="success-desc">Sua nova senha foi salva. Você já pode entrar com ela.</p>
+    </div>
+    <a href="login.html" class="btn" style="margin-top:24px;display:flex;text-decoration:none;">Voltar ao login</a>
+  </div>
+
+</div>
+</body>
+</html>

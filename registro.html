@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CYLA - Registrar hoje</title>
+<link rel="stylesheet" href="cyla.css">
+<script src="seed.js"></script>
+<script src="presets.js"></script>
+<script src="storage.js"></script>
+<script src="app.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-icon"><i class="ti ti-shield-check"></i></div>
+      <div><div class="brand-name">CYLA</div><div class="brand-sub">Control Your Life Again</div></div>
+    </div>
+    <div class="sidebar-user">
+      <div class="user-avatar">U</div>
+      <div><div class="user-name">Usuário</div><div class="user-handle">@usuario</div></div>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="home.html" class="nav-link"><i class="ti ti-home"></i> Início</a>
+      <a href="progresso.html" class="nav-link"><i class="ti ti-chart-bar"></i> Progresso</a>
+      <a href="habitos.html" class="nav-link"><i class="ti ti-list-check"></i> Meus hábitos</a>
+      <a href="amigos.html" class="nav-link"><i class="ti ti-users"></i> Amigos</a>
+      <a href="perfil.html" class="nav-link"><i class="ti ti-user-circle"></i> Meu perfil</a>
+    </nav>
+    <div class="sidebar-reg">
+      <a href="registro.html" class="btn-register" style="background:var(--green-darker);"><i class="ti ti-check"></i> Registrando...</a>
+    </div>
+  </aside>
+  <div class="main-content">
+    <div class="topbar">
+      <div class="topbar-brand">
+        <div class="brand-icon"><i class="ti ti-shield-check"></i></div>
+        <span class="topbar-name">CYLA</span>
+      </div>
+      <a href="home.html" class="back-btn" style="text-decoration:none;"><i class="ti ti-x"></i></a>
+    </div>
+    <div class="page">
+      <div class="page-header">
+        <div class="page-back">
+          <a href="home.html" class="back-btn"><i class="ti ti-arrow-left"></i></a>
+          <div class="page-title">Registrar hoje</div>
+        </div>
+      </div>
+      <div class="filter-tabs">
+        <div class="filter-tab active-v1" onclick="selectVicio(this,'active-v1')">Cigarro</div>
+        <div class="filter-tab" onclick="selectVicio(this,'active-v2')">Redes sociais</div>
+      </div>
+      <div class="cyla-card">
+        <div class="card-label">Como foi hoje?</div>
+        <div class="resultado-grid">
+          <div class="resultado-card resisti selected" onclick="selectResultado('resisti')">
+            <div class="resultado-icon" style="background:rgba(29,158,117,0.15);"><i class="ti ti-check" style="color:var(--green-main);"></i></div>
+            <div class="resultado-title">Resisti</div>
+            <div class="resultado-desc">Não cedi ao vício hoje</div>
+          </div>
+          <div class="resultado-card recai" onclick="selectResultado('recai')">
+            <div class="resultado-icon" style="background:rgba(216,90,48,0.1);"><i class="ti ti-x" style="color:var(--red-main);"></i></div>
+            <div class="resultado-title">Recaí</div>
+            <div class="resultado-desc">Cedi ao vício hoje</div>
+          </div>
+        </div>
+      </div>
+      <div class="cyla-card">
+        <div class="card-label">Intensidade da vontade</div>
+        <div class="pill-group">
+          <div class="pill" onclick="selectPill(this,'.intensidade')">Baixa</div>
+          <div class="pill selected intensidade-sel" onclick="selectPill(this,'.intensidade')">Média</div>
+          <div class="pill" onclick="selectPill(this,'.intensidade')">Alta</div>
+          <div class="pill" onclick="selectPill(this,'.intensidade')">Muito alta</div>
+        </div>
+      </div>
+      <div class="cyla-card">
+        <div class="card-label">O que desencadeou?</div>
+        <div class="pill-group">
+          <div class="pill selected" onclick="this.classList.toggle('selected')">Estresse</div>
+          <div class="pill" onclick="this.classList.toggle('selected')">Tédio</div>
+          <div class="pill" onclick="this.classList.toggle('selected')">Ansiedade</div>
+          <div class="pill" onclick="this.classList.toggle('selected')">Após refeição</div>
+          <div class="pill" onclick="this.classList.toggle('selected')">Ambiente social</div>
+          <div class="pill" onclick="this.classList.toggle('selected')">+ outro</div>
+        </div>
+      </div>
+      <div class="cyla-card">
+        <div class="card-label">Como estava se sentindo?</div>
+        <div class="pill-group">
+          <div class="pill" onclick="selectPill(this,'.humor')">Mal</div>
+          <div class="pill selected" onclick="selectPill(this,'.humor')">Neutro</div>
+          <div class="pill" onclick="selectPill(this,'.humor')">Bom</div>
+          <div class="pill" onclick="selectPill(this,'.humor')">Ótimo</div>
+        </div>
+      </div>
+      <div class="cyla-card">
+        <div class="card-label">Anotações (opcional)</div>
+        <textarea class="form-textarea" placeholder="O que te ajudou a resistir? Como foi o momento..."></textarea>
+      </div>
+      <button class="btn-primary" id="btn-salvar-registro">
+        <i class="ti ti-check"></i> Salvar registro
+      </button>
+    </div>
+    <nav class="bottom-nav">
+      <a href="home.html" class="bnav-item"><i class="ti ti-home"></i><span>Início</span></a>
+      <a href="progresso.html" class="bnav-item"><i class="ti ti-chart-bar"></i><span>Progresso</span></a>
+      <a href="registro.html" class="bnav-item"><div class="bnav-fab" style="background:var(--green-darker);"><i class="ti ti-plus"></i></div></a>
+      <a href="amigos.html" class="bnav-item"><i class="ti ti-users"></i><span>Amigos</span></a>
+      <a href="perfil.html" class="bnav-item"><i class="ti ti-user-circle"></i><span>Perfil</span></a>
+    </nav>
+  </div>
+</div>
+<script>
+  function selectVicio(btn, cls) {
+    document.querySelectorAll('.filter-tab').forEach(t => t.className = 'filter-tab');
+    btn.classList.add(cls);
+  }
+  function selectResultado(tipo) {
+    document.querySelectorAll('.resultado-card').forEach(c => c.classList.remove('selected'));
+    document.querySelector('.resultado-card.'+tipo).classList.add('selected');
+  }
+  function selectPill(btn, group) {
+    btn.closest('.pill-group').querySelectorAll('.pill').forEach(p => p.classList.remove('selected'));
+    btn.classList.add('selected');
+  }
+</script>
+</body>
+</html>

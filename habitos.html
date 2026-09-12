@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CYLA - Meus hábitos</title>
+<link rel="stylesheet" href="cyla.css">
+<script src="seed.js"></script>
+<script src="presets.js"></script>
+<script src="storage.js"></script>
+<script src="app.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-icon"><i class="ti ti-shield-check"></i></div>
+      <div><div class="brand-name">CYLA</div><div class="brand-sub">Control Your Life Again</div></div>
+    </div>
+    <div class="sidebar-user">
+      <div class="user-avatar">U</div>
+      <div><div class="user-name">Usuário</div><div class="user-handle">@usuario</div></div>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="home.html" class="nav-link"><i class="ti ti-home"></i> Início</a>
+      <a href="progresso.html" class="nav-link"><i class="ti ti-chart-bar"></i> Progresso</a>
+      <a href="habitos.html" class="nav-link active"><i class="ti ti-list-check"></i> Meus hábitos</a>
+      <a href="amigos.html" class="nav-link"><i class="ti ti-users"></i> Amigos</a>
+      <a href="perfil.html" class="nav-link"><i class="ti ti-user-circle"></i> Meu perfil</a>
+    </nav>
+    <div class="sidebar-reg">
+      <a href="registro.html" class="btn-register"><i class="ti ti-plus"></i> Registrar hoje</a>
+    </div>
+  </aside>
+  <div class="main-content">
+    <div class="topbar">
+      <div class="topbar-brand">
+        <div class="brand-icon"><i class="ti ti-shield-check"></i></div>
+        <span class="topbar-name">CYLA</span>
+      </div>
+      <div class="topbar-avatar">U</div>
+    </div>
+    <div class="page">
+      <div class="page-header">
+        <div class="page-title">Meus hábitos</div>
+        <a href="adicionar-vicio.html" class="btn-primary" style="width:auto;padding:8px 16px;font-size:13px;text-decoration:none;">
+          <i class="ti ti-plus"></i> Adicionar
+        </a>
+      </div>
+      <div class="cyla-card">
+        <div class="card-label">Vícios monitorados</div>
+        <a href="editar-vicio.html" class="habit-row">
+          <div class="habit-color" style="background:var(--green-main);"></div>
+          <div class="habit-info">
+            <div class="habit-name">Cigarro</div>
+            <div class="habit-meta">Abstinência · Meta: 30 dias · 14 dias de sequência</div>
+          </div>
+          <i class="ti ti-chevron-right habit-arrow"></i>
+        </a>
+        <a href="editar-vicio.html" class="habit-row">
+          <div class="habit-color" style="background:var(--purple-main);"></div>
+          <div class="habit-info">
+            <div class="habit-name">Redes sociais</div>
+            <div class="habit-meta">Limite diário · Meta: 2h/dia · Hoje: 1h24</div>
+          </div>
+          <i class="ti ti-chevron-right habit-arrow"></i>
+        </a>
+        <a href="adicionar-vicio.html" class="add-btn">
+          <i class="ti ti-plus"></i>
+          <span>Adicionar vício</span>
+        </a>
+      </div>
+      <div class="cyla-card">
+        <div class="card-label">Resumo rápido</div>
+        <div class="grid-2" style="gap:10px;">
+          <div style="background:var(--bg-card2);border-radius:var(--radius-md);padding:12px;border:1px solid var(--bg-border);">
+            <div style="font-size:10px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;">Cigarro</div>
+            <div style="font-size:20px;font-weight:600;color:var(--green-main);">14 dias</div>
+            <div style="font-size:11px;color:var(--text-muted);">Melhor: 14 dias</div>
+          </div>
+          <div style="background:var(--bg-card2);border-radius:var(--radius-md);padding:12px;border:1px solid var(--bg-border);">
+            <div style="font-size:10px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;">Redes sociais</div>
+            <div style="font-size:20px;font-weight:600;color:var(--purple-main);">1h24</div>
+            <div style="font-size:11px;color:var(--text-muted);">Hoje · limite 2h</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav class="bottom-nav">
+      <a href="home.html" class="bnav-item"><i class="ti ti-home"></i><span>Início</span></a>
+      <a href="progresso.html" class="bnav-item"><i class="ti ti-chart-bar"></i><span>Progresso</span></a>
+      <a href="registro.html" class="bnav-item"><div class="bnav-fab"><i class="ti ti-plus"></i></div></a>
+      <a href="amigos.html" class="bnav-item"><i class="ti ti-users"></i><span>Amigos</span></a>
+      <a href="perfil.html" class="bnav-item"><i class="ti ti-user-circle"></i><span>Perfil</span></a>
+    </nav>
+  </div>
+</div>
+</body>
+</html>

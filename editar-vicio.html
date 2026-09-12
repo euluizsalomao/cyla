@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CYLA - Editar hábito</title>
+<link rel="stylesheet" href="cyla.css">
+<script src="seed.js"></script>
+<script src="presets.js"></script>
+<script src="storage.js"></script>
+<script src="app.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-icon"><i class="ti ti-shield-check"></i></div>
+      <div><div class="brand-name">CYLA</div><div class="brand-sub">Control Your Life Again</div></div>
+    </div>
+    <div class="sidebar-user">
+      <div class="user-avatar">U</div>
+      <div><div class="user-name">Usuário</div><div class="user-handle">@usuario</div></div>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="home.html" class="nav-link"><i class="ti ti-home"></i> Início</a>
+      <a href="progresso.html" class="nav-link"><i class="ti ti-chart-bar"></i> Progresso</a>
+      <a href="habitos.html" class="nav-link active"><i class="ti ti-list-check"></i> Meus hábitos</a>
+      <a href="amigos.html" class="nav-link"><i class="ti ti-users"></i> Amigos</a>
+      <a href="perfil.html" class="nav-link"><i class="ti ti-user-circle"></i> Meu perfil</a>
+    </nav>
+    <div class="sidebar-reg">
+      <a href="registro.html" class="btn-register"><i class="ti ti-plus"></i> Registrar hoje</a>
+    </div>
+  </aside>
+  <div class="main-content">
+    <div class="topbar">
+      <div class="topbar-brand">
+        <div class="brand-icon"><i class="ti ti-shield-check"></i></div>
+        <span class="topbar-name">CYLA</span>
+      </div>
+      <div class="topbar-avatar">U</div>
+    </div>
+    <div class="page">
+      <div class="page-header">
+        <div class="page-back">
+          <a href="habitos.html" class="back-btn"><i class="ti ti-arrow-left"></i></a>
+          <div class="page-title">Cigarro</div>
+        </div>
+        <button class="header-action" onclick="if(confirm('Excluir este vício?'))window.location='habitos.html'">Excluir</button>
+      </div>
+      <div class="vicio-info-card">
+        <div>
+          <div class="vicio-info-name">Cigarro</div>
+          <div class="vicio-info-date">Monitorando desde 1 mar 2026</div>
+        </div>
+        <div class="vicio-info-days">14 dias</div>
+      </div>
+      <div class="cyla-card">
+        <div class="card-label">Tipo de vício</div>
+        <div class="tipo-grid-app">
+          <button class="tipo-app-btn selected" onclick="selectTipo(this)">Substância</button>
+          <button class="tipo-app-btn" onclick="selectTipo(this)">Comportamento</button>
+          <button class="tipo-app-btn" onclick="selectTipo(this)">Tela / digital</button>
+          <button class="tipo-app-btn" onclick="selectTipo(this)">Alimentar</button>
+        </div>
+      </div>
+      <div class="cyla-card" style="margin-top:32px;">
+        <div class="card-label">Meta</div>
+        <div class="meta-tabs-app">
+          <button class="meta-tab-app active" onclick="selectMetaTab(this)">Abstinência</button>
+          <button class="meta-tab-app" onclick="selectMetaTab(this)">Redução</button>
+          <button class="meta-tab-app" onclick="selectMetaTab(this)">Limite diário</button>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+          <input type="number" value="30" min="1" style="width:80px;height:42px;text-align:center;background:var(--bg-card2);border:1px solid var(--bg-border);border-radius:var(--radius-md);outline:none;font-size:20px;font-weight:600;color:var(--text-primary);font-family:var(--font-main);">
+          <span id="meta-unidade-edit" style="font-size:13px;color:var(--text-secondary);margin-left:4px;">dias consecutivos</span>
+        </div>
+        <p style="font-size:11px;color:var(--text-muted);line-height:1.5;">Objetivo: ficar XX dias sem consumir. Após atingir, uma nova meta será sugerida.</p>
+      </div>
+      <div class="cyla-card">
+        <div class="card-label">Modo de controle</div>
+        <div class="modo-app selected" onclick="selectModo(this)">
+          <div class="radio-app"></div>
+          <div>
+            <div class="modo-app-title">Parar de uma vez</div>
+            <div class="modo-app-desc">Interrupção imediata. Cada dia sem o vício conta para a sequência.</div>
+          </div>
+        </div>
+        <div class="modo-app" onclick="selectModo(this)">
+          <div class="radio-app"></div>
+          <div>
+            <div class="modo-app-title">Redução gradual</div>
+            <div class="modo-app-desc">Diminui o consumo progressivamente até zerar. Você define o ritmo.</div>
+          </div>
+        </div>
+      </div>
+
+        <div class="card-label" style="margin-top:14px;">Gasto financeiro</div>
+        <div style="display:flex;gap:8px;margin-bottom:10px;">
+          <button class="gasto-opc-btn tipo-app-btn" data-gasto="nao" onclick="toggleGasto(this)" style="flex:1;">Sem gasto</button>
+          <button class="gasto-opc-btn tipo-app-btn" data-gasto="sim" onclick="toggleGasto(this)" style="flex:1;">Tem gasto</button>
+        </div>
+        <div id="gasto-detalhes">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+            <span style="font-size:13px;color:var(--text-secondary);">R$</span>
+            <input type="number" class="gasto-valor" placeholder="0,00" min="0" step="0.01"
+              style="width:110px;height:40px;text-align:center;background:var(--bg-card2);border:1px solid var(--bg-border);border-radius:var(--radius-md);outline:none;font-size:16px;font-weight:600;color:var(--text-primary);font-family:var(--font-main);">
+            <span style="font-size:13px;color:var(--text-secondary);">por</span>
+          </div>
+          <div class="gasto-tabs" style="display:flex;background:var(--bg-card2);border:1px solid var(--bg-border);border-radius:var(--radius-md);padding:3px;margin-bottom:4px;">
+            <button class="gasto-tab gasto-periodo-btn active" data-periodo="diario" onclick="selectGastoPeriodo(this)">Dia</button>
+            <button class="gasto-tab gasto-periodo-btn" data-periodo="semanal" onclick="selectGastoPeriodo(this)">Semana</button>
+            <button class="gasto-tab gasto-periodo-btn" data-periodo="mensal" onclick="selectGastoPeriodo(this)">Mês</button>
+          </div>
+        </div>
+
+      <button class="btn-primary">
+        <i class="ti ti-check"></i> Salvar alterações
+      </button>
+      <button class="btn-secondary-app">Arquivar vício</button>
+    </div>
+    <nav class="bottom-nav">
+      <a href="home.html" class="bnav-item"><i class="ti ti-home"></i><span>Início</span></a>
+      <a href="progresso.html" class="bnav-item"><i class="ti ti-chart-bar"></i><span>Progresso</span></a>
+      <a href="registro.html" class="bnav-item"><div class="bnav-fab"><i class="ti ti-plus"></i></div></a>
+      <a href="amigos.html" class="bnav-item"><i class="ti ti-users"></i><span>Amigos</span></a>
+      <a href="perfil.html" class="bnav-item"><i class="ti ti-user-circle"></i><span>Perfil</span></a>
+    </nav>
+  </div>
+</div>
+<script>
+  function selectTipo(btn) {
+    document.querySelectorAll('.tipo-app-btn').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+  }
+  function selectMetaTab(btn) {
+    document.querySelectorAll('.meta-tab-app').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    atualizarHintApp();
+  }
+  function atualizarHintApp() {
+    const tabAtiva = document.querySelector('.meta-tab-app.active');
+    const tipo  = tabAtiva ? tabAtiva.textContent.trim() : 'Absti';
+    const valor = parseInt(document.querySelector('input[type="number"]:not(.gasto-valor)')?.value) || 0;
+    const u = document.getElementById('meta-unidade-app') || document.getElementById('meta-unidade-edit');
+    const h = document.getElementById('meta-hint-app');
+    if (u) {
+      if (tipo.startsWith('Absti')) u.textContent = 'dias consecutivos';
+      else if (tipo.startsWith('Redu')) u.textContent = 'vezes por semana (m\u00e1ximo)';
+      else u.textContent = 'horas por dia (limite)';
+    }
+    if (h) {
+      if (tipo.startsWith('Absti')) h.textContent = 'Objetivo: ficar ' + valor + ' dias sem consumir. Ap\u00f3s atingir, uma nova meta ser\u00e1 sugerida.';
+      else if (tipo.startsWith('Redu')) h.textContent = 'Objetivo: consumir no m\u00e1ximo ' + valor + ' vezes por semana, reduzindo progressivamente.';
+      else h.textContent = 'Objetivo: n\u00e3o ultrapassar ' + valor + ' hora(s) por dia. Cada dia dentro do limite conta.';
+    }
+  }
+  document.addEventListener('DOMContentLoaded', function() {
+    const n = document.querySelector('input[type="number"]:not(.gasto-valor)');
+    if (n) n.addEventListener('input', atualizarHintApp);
+    atualizarHintApp();
+  });
+</script>
+</body>
+</html>

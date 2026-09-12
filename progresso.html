@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CYLA - Progresso</title>
+<link rel="stylesheet" href="cyla.css">
+<script src="seed.js"></script>
+<script src="presets.js"></script>
+<script src="storage.js"></script>
+<script src="app.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-icon"><i class="ti ti-shield-check"></i></div>
+      <div><div class="brand-name">CYLA</div><div class="brand-sub">Control Your Life Again</div></div>
+    </div>
+    <div class="sidebar-user">
+      <div class="user-avatar">U</div>
+      <div><div class="user-name">Usuário</div><div class="user-handle">@usuario</div></div>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="home.html" class="nav-link"><i class="ti ti-home"></i> Início</a>
+      <a href="progresso.html" class="nav-link active"><i class="ti ti-chart-bar"></i> Progresso</a>
+      <a href="habitos.html" class="nav-link"><i class="ti ti-list-check"></i> Meus hábitos</a>
+      <a href="amigos.html" class="nav-link"><i class="ti ti-users"></i> Amigos</a>
+      <a href="perfil.html" class="nav-link"><i class="ti ti-user-circle"></i> Meu perfil</a>
+    </nav>
+    <div class="sidebar-reg">
+      <a href="registro.html" class="btn-register"><i class="ti ti-plus"></i> Registrar hoje</a>
+    </div>
+  </aside>
+  <div class="main-content">
+    <div class="topbar">
+      <div class="topbar-brand">
+        <div class="brand-icon"><i class="ti ti-shield-check"></i></div>
+        <span class="topbar-name">CYLA</span>
+      </div>
+      <div class="topbar-avatar">U</div>
+    </div>
+    <div class="page">
+      <div class="page-header">
+        <div class="page-title">Progresso</div>
+        <div class="period-tabs" id="period-tabs-wrap">
+          <button class="period-tab">7d</button>
+          <button class="period-tab active">30d</button>
+          <button class="period-tab">3m</button>
+        </div>
+      </div>
+
+      <!-- Toggle Dados / Histórico -->
+      <div class="view-toggle">
+        <button class="view-tab active" id="tab-dados"     onclick="switchView('dados')">Dados</button>
+        <button class="view-tab"        id="tab-historico" onclick="switchView('historico')">Histórico</button>
+      </div>
+
+      <div class="filter-tabs" id="filter-tabs-wrap">
+        <div class="filter-tab active-v1" onclick="selecionarVicioProgresso(this,'active-v1')">Cigarro</div>
+        <div class="filter-tab" onclick="selecionarVicioProgresso(this,'active-v2')">Redes sociais</div>
+        <div class="filter-tab" onclick="selecionarVicioProgresso(this,'active-all')">Todos</div>
+      </div>
+
+      <!-- SEÇÃO: DADOS (padrão) -->
+      <div id="dados-section">
+      <div class="cyla-card">
+        <div class="card-label">Dias resistidos</div>
+        <div class="chart-wrap">
+          <div class="chart-col"><div class="chart-val muted">5</div><div class="chart-bar-wrap"><div class="chart-bar" style="height:42%;background:var(--green-darker);"></div></div><div class="chart-day">S1</div></div>
+          <div class="chart-col"><div class="chart-val muted">6</div><div class="chart-bar-wrap"><div class="chart-bar" style="height:55%;background:var(--green-darker);"></div></div><div class="chart-day">S2</div></div>
+          <div class="chart-col"><div class="chart-val muted">4</div><div class="chart-bar-wrap"><div class="chart-bar" style="height:35%;background:var(--green-darker);"></div></div><div class="chart-day">S3</div></div>
+          <div class="chart-col"><div class="chart-val">6</div><div class="chart-bar-wrap"><div class="chart-bar" style="height:55%;background:var(--green-main);"></div></div><div class="chart-day">S4</div></div>
+        </div>
+        <div class="chart-legend">
+          <div style="display:flex;align-items:center;gap:6px;"><div class="legend-dot" style="background:var(--green-main);"></div><span class="legend-label">Semana atual</span></div>
+          <div style="display:flex;align-items:center;gap:6px;"><div class="legend-dot" style="background:var(--green-darker);"></div><span class="legend-label">Semanas anteriores</span></div>
+        </div>
+      </div>
+      <div class="grid-4">
+        <div class="cyla-card">
+          <div class="card-label">Sequência atual</div>
+          <div class="metric-val" style="color:var(--green-main);">9 <span style="font-size:14px;color:var(--text-muted);">dias</span></div>
+          <div class="metric-record">Recorde: 14 dias</div>
+        </div>
+        <div class="cyla-card">
+          <div class="card-label">Taxa de sucesso</div>
+          <div class="metric-val">82<span class="metric-unit">%</span></div>
+          <div class="metric-delta" style="color:var(--green-light);">+12% vs mês ant.</div>
+        </div>
+        <div class="cyla-card">
+          <div class="card-label">Economia</div>
+          <div class="metric-val" style="font-size:20px;">R$196</div>
+          <div class="metric-sub">neste mês</div>
+        </div>
+        <div class="cyla-card">
+          <div class="card-label">Recaídas</div>
+          <div class="metric-val">5</div>
+          <div class="metric-delta" style="color:var(--green-light);">-3 vs mês ant.</div>
+        </div>
+      </div>
+      <div class="grid-2">
+        <div class="cyla-card">
+          <div class="card-label">Conquistas</div>
+          <div class="conquest-row">
+            <div class="conquest-icon" style="background:var(--amber-darker);"><i class="ti ti-star" style="color:var(--amber-main);"></i></div>
+            <div class="conquest-info"><div class="conquest-name">Primeira semana</div><div class="conquest-desc">7 dias consecutivos</div></div>
+            <span class="conquest-badge done">Conquistado</span>
+          </div>
+          <div class="conquest-row">
+            <div class="conquest-icon" style="background:var(--bg-track);"><i class="ti ti-bolt" style="color:var(--text-muted);"></i></div>
+            <div class="conquest-info"><div class="conquest-name">Duas semanas</div><div class="conquest-desc">14 dias consecutivos</div></div>
+            <span class="conquest-badge pending">Em 5 dias</span>
+          </div>
+          <div class="conquest-row">
+            <div class="conquest-icon" style="background:var(--bg-track);"><i class="ti ti-trophy" style="color:var(--text-muted);"></i></div>
+            <div class="conquest-info"><div class="conquest-name">Um mês inteiro</div><div class="conquest-desc">30 dias consecutivos</div></div>
+            <span class="conquest-badge pending">Em 21 dias</span>
+          </div>
+        </div>
+        <div class="cyla-card">
+          <div class="card-label">Principais gatilhos</div>
+          <div class="gatilho-row"><div class="gatilho-name">Estresse no trabalho</div><div class="gatilho-track"><div class="gatilho-fill" style="width:80%;"></div></div><div class="gatilho-count">8x</div></div>
+          <div class="gatilho-row"><div class="gatilho-name">Após refeições</div><div class="gatilho-track"><div class="gatilho-fill" style="width:50%;"></div></div><div class="gatilho-count">5x</div></div>
+          <div class="gatilho-row"><div class="gatilho-name">Tédio</div><div class="gatilho-track"><div class="gatilho-fill" style="width:30%;"></div></div><div class="gatilho-count">3x</div></div>
+        </div>
+      </div>
+      <div class="card-label" style="padding:0 0 8px;">Sobre o cigarro</div>
+      <div class="insight-card">
+        <div class="insight-icon" style="background:var(--green-darkest);"><i class="ti ti-shield-check" style="color:var(--green-light);"></i></div>
+        <div><div class="insight-title">O que melhora ao parar</div><div class="insight-text">Após 9 dias sem fumar, a circulação sanguínea já melhora e a capacidade pulmonar começa a se recuperar.</div><div class="insight-source">OMS</div></div>
+      </div>
+      <div class="insight-card" style="margin-top:8px;">
+        <div class="insight-icon" style="background:var(--purple-darker);"><i class="ti ti-info-circle" style="color:var(--purple-light);"></i></div>
+        <div><div class="insight-title">Como a nicotina age</div><div class="insight-text">A vontade de fumar dura em média 3 a 5 minutos. Respirar fundo ou beber água pode ajudar a passar esse momento.</div><div class="insight-source">Instituto Nacional do Câncer</div></div>
+      </div>
+      <div class="insight-card" style="margin-top:8px;">
+        <div class="insight-icon" style="background:var(--amber-darker);"><i class="ti ti-bulb" style="color:var(--amber-light);"></i></div>
+        <div><div class="insight-title">Dica baseada no seu padrão</div><div class="insight-text">Seu gatilho mais frequente é estresse. Experimente uma pausa de 5 min com respiração antes de reuniões.</div><div class="insight-source">Baseado nos seus registros</div></div>
+      </div>
+
+      </div><!-- /dados-section -->
+
+      <!-- SEÇÃO: HISTÓRICO -->
+      <div id="historico-section" style="display:none;">
+        <div class="cal-nav">
+          <button class="cal-nav-btn" onclick="navMes(-1)"><i class="ti ti-chevron-left"></i></button>
+          <span class="cal-mes-label" id="cal-mes-label">Junho 2026</span>
+          <button class="cal-nav-btn" onclick="navMes(1)"><i class="ti ti-chevron-right"></i></button>
+        </div>
+        <div class="cal-legend">
+          <div class="cal-legend-item"><div class="cal-dot" style="background:var(--green-main);"></div><span>Resisti</span></div>
+          <div class="cal-legend-item"><div class="cal-dot" style="background:var(--red-main);"></div><span>Recaí</span></div>
+          <div class="cal-legend-item"><div class="cal-dot" style="background:var(--bg-card2);border:1px solid var(--bg-border);"></div><span>Sem registro</span></div>
+        </div>
+        <div class="cal-weekdays">
+          <span>Dom</span><span>Seg</span><span>Ter</span><span>Qua</span><span>Qui</span><span>Sex</span><span>Sáb</span>
+        </div>
+        <div class="cal-grid" id="cal-grid"></div>
+
+        <!-- Modal de dia -->
+        <div id="cal-modal" class="cal-modal" style="display:none;">
+          <div class="cal-modal-card">
+            <div class="cal-modal-header">
+              <span class="cal-modal-data" id="cal-modal-data"></span>
+              <button class="cal-modal-close" onclick="fecharModal()"><i class="ti ti-x"></i></button>
+            </div>
+            <div id="cal-modal-body"></div>
+            <div id="cal-modal-actions"></div>
+          </div>
+        </div>
+      </div><!-- /historico-section -->
+
+    </div><!-- /page -->
+    <nav class="bottom-nav">
+      <a href="home.html" class="bnav-item"><i class="ti ti-home"></i><span>Início</span></a>
+      <a href="progresso.html" class="bnav-item active"><i class="ti ti-chart-bar"></i><span>Progresso</span></a>
+      <a href="registro.html" class="bnav-item"><div class="bnav-fab"><i class="ti ti-plus"></i></div></a>
+      <a href="amigos.html" class="bnav-item"><i class="ti ti-users"></i><span>Amigos</span></a>
+      <a href="perfil.html" class="bnav-item"><i class="ti ti-user-circle"></i><span>Perfil</span></a>
+    </nav>
+  </div>
+</div>
+
+</body>
+</html>

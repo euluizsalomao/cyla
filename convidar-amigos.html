@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CYLA - Convidar amigos</title>
+<link rel="stylesheet" href="cyla.css">
+<script src="seed.js"></script>
+<script src="presets.js"></script>
+<script src="storage.js"></script>
+<script src="app.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-icon"><i class="ti ti-shield-check"></i></div>
+      <div><div class="brand-name">CYLA</div><div class="brand-sub">Control Your Life Again</div></div>
+    </div>
+    <div class="sidebar-user">
+      <div class="user-avatar">U</div>
+      <div><div class="user-name">Usuário</div><div class="user-handle">@usuario</div></div>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="home.html" class="nav-link"><i class="ti ti-home"></i> Início</a>
+      <a href="progresso.html" class="nav-link"><i class="ti ti-chart-bar"></i> Progresso</a>
+      <a href="habitos.html" class="nav-link"><i class="ti ti-list-check"></i> Meus hábitos</a>
+      <a href="amigos.html" class="nav-link active"><i class="ti ti-users"></i> Amigos</a>
+      <a href="perfil.html" class="nav-link"><i class="ti ti-user-circle"></i> Meu perfil</a>
+    </nav>
+    <div class="sidebar-reg">
+      <a href="registro.html" class="btn-register"><i class="ti ti-plus"></i> Registrar hoje</a>
+    </div>
+  </aside>
+  <div class="main-content">
+    <div class="topbar">
+      <div class="topbar-brand">
+        <div class="brand-icon"><i class="ti ti-shield-check"></i></div>
+        <span class="topbar-name">CYLA</span>
+      </div>
+      <div class="topbar-avatar">U</div>
+    </div>
+    <div class="page">
+      <div class="page-header">
+        <div class="page-back">
+          <a href="amigos.html" class="back-btn"><i class="ti ti-arrow-left"></i></a>
+          <div class="page-title">Convidar amigos</div>
+        </div>
+      </div>
+      <div class="cyla-card">
+        <div class="card-label">Adicionar amigos</div>
+        <div class="search-box">
+          <i class="ti ti-search"></i>
+          <input type="text" placeholder="Buscar por nome de usuário">
+        </div>
+      </div>
+      <div class="cyla-card">
+        <div class="card-label">Convidar amigos</div>
+        <p style="font-size:13px;color:var(--text-tertiary);margin-bottom:12px;line-height:1.6;">Compartilhe seu link pessoal. Quando alguém entrar pelo seu link, vocês são conectados automaticamente.</p>
+        <div class="invite-box">
+          <span class="invite-link">cyla.app/convite/usuario</span>
+          <button class="copy-btn" onclick="copyLink(this)">Copiar</button>
+        </div>
+        <button class="share-btn" style="margin-top:12px;">
+          <i class="ti ti-share"></i> Compartilhar link
+        </button>
+      </div>
+    </div>
+    <nav class="bottom-nav">
+      <a href="home.html" class="bnav-item"><i class="ti ti-home"></i><span>Início</span></a>
+      <a href="progresso.html" class="bnav-item"><i class="ti ti-chart-bar"></i><span>Progresso</span></a>
+      <a href="registro.html" class="bnav-item"><div class="bnav-fab"><i class="ti ti-plus"></i></div></a>
+      <a href="amigos.html" class="bnav-item active"><i class="ti ti-users"></i><span>Amigos</span></a>
+      <a href="perfil.html" class="bnav-item"><i class="ti ti-user-circle"></i><span>Perfil</span></a>
+    </nav>
+  </div>
+</div>
+<script>
+  function copyLink(btn) {
+    navigator.clipboard.writeText('cyla.app/convite/usuario').catch(()=>{});
+    btn.textContent = 'Copiado!';
+    btn.style.background = 'var(--green-darker)';
+    setTimeout(()=>{ btn.textContent = 'Copiar'; btn.style.background=''; }, 2000);
+  }
+</script>
+</body>
+</html>

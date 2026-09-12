@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CYLA - Início</title>
+<link rel="stylesheet" href="cyla.css">
+<script src="seed.js"></script>
+<script src="presets.js"></script>
+<script src="storage.js"></script>
+<script src="app.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-icon"><i class="ti ti-shield-check"></i></div>
+      <div><div class="brand-name">CYLA</div><div class="brand-sub">Control Your Life Again</div></div>
+    </div>
+    <div class="sidebar-user">
+      <div class="user-avatar">U</div>
+      <div><div class="user-name">Usuário</div><div class="user-handle">@usuario</div></div>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="home.html" class="nav-link active"><i class="ti ti-home"></i> Início</a>
+      <a href="progresso.html" class="nav-link"><i class="ti ti-chart-bar"></i> Progresso</a>
+      <a href="habitos.html" class="nav-link"><i class="ti ti-list-check"></i> Meus hábitos</a>
+      <a href="amigos.html" class="nav-link"><i class="ti ti-users"></i> Amigos</a>
+      <a href="perfil.html" class="nav-link"><i class="ti ti-user-circle"></i> Meu perfil</a>
+    </nav>
+    <div class="sidebar-reg">
+      <a href="registro.html" class="btn-register"><i class="ti ti-plus"></i> Registrar hoje</a>
+    </div>
+  </aside>
+  <div class="main-content">
+    <div class="topbar">
+      <div class="topbar-brand">
+        <div class="brand-icon"><i class="ti ti-shield-check"></i></div>
+        <span class="topbar-name">CYLA</span>
+      </div>
+      <div class="topbar-avatar">U</div>
+    </div>
+    <div class="page">
+      <div class="greeting-row">
+        <div>
+          <div class="greeting-hi">Bom dia,</div>
+          <div class="greeting-name">Usuário</div>
+        </div>
+        <div class="streak-pill"><i class="ti ti-flame"></i><span>Sequência atual do vício principal</span></div>
+      </div>
+      <div class="grid-4">
+        <div class="cyla-card">
+          <div class="card-label">Economia total</div>
+          <div class="metric-val green" data-metric="economia">R$XX</div>
+          <div class="metric-sub">neste mês</div>
+        </div>
+        <div class="cyla-card">
+          <div class="card-label">Conquistas</div>
+          <div class="metric-val" data-metric="conquistas">X</div>
+          <div class="metric-sub">desbloqueadas</div>
+        </div>
+        <div class="cyla-card">
+          <div class="card-label">Taxa de sucesso</div>
+          <div class="metric-val" data-metric="sucesso">XX<span class="metric-unit">%</span></div>
+          <div class="metric-sub">neste mês</div>
+        </div>
+        <div class="cyla-card">
+          <div class="card-label">Recaídas</div>
+          <div class="metric-val" data-metric="recaidas">X</div>
+          <div class="metric-sub">neste mês</div>
+        </div>
+      </div>
+      <div class="grid-3">
+        <div class="cyla-card span-2">
+          <div class="card-label">Meus vícios</div>
+          <div class="vicios-grid">
+            <div class="vicio-card">
+              <div class="vicio-header"><div class="vicio-dot" style="background:var(--green-main);"></div><div class="vicio-name">Cigarro</div><div class="vicio-meta">30 dias</div></div>
+              <div class="progress-track"><div class="progress-fill" style="width:47%;background:var(--green-main);"></div></div>
+              <div class="progress-labels"><span>14 dias</span><span class="pct" style="color:var(--green-main);">47%</span></div>
+            </div>
+            <div class="vicio-card">
+              <div class="vicio-header"><div class="vicio-dot" style="background:var(--purple-main);"></div><div class="vicio-name">Redes sociais</div><div class="vicio-meta">2h/dia</div></div>
+              <div class="progress-track"><div class="progress-fill" style="width:70%;background:var(--purple-main);"></div></div>
+              <div class="progress-labels"><span>Hoje: 1h24</span><span class="pct" style="color:var(--purple-main);">70%</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="cyla-card">
+          <div class="card-label">Ações rápidas</div>
+          <div class="actions-col">
+            <a href="registro.html" class="action-btn">
+              <div class="action-icon" style="background:var(--green-darkest);"><i class="ti ti-clock" style="color:var(--green-light);"></i></div>
+              <span>Registrar hoje</span>
+            </a>
+            <a href="progresso.html" class="action-btn">
+              <div class="action-icon" style="background:var(--purple-darker);"><i class="ti ti-chart-bar" style="color:var(--purple-light);"></i></div>
+              <span>Ver progresso</span>
+            </a>
+            <a href="habitos.html" class="action-btn">
+              <div class="action-icon" style="background:var(--amber-darker);"><i class="ti ti-list-check" style="color:var(--amber-light);"></i></div>
+              <span>Meus hábitos</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="grid-2">
+        <div class="cyla-card">
+          <div class="card-label">Ranking - amigos</div>
+          <div class="rank-row">
+            <div class="rank-num">1</div>
+            <div class="rank-avatar" style="background:var(--amber-darker);color:var(--amber-light);">A</div>
+            <div class="rank-name">Amigo</div>
+            <div class="rank-seq">Sequência</div>
+          </div>
+          <div class="rank-row">
+            <div class="rank-num">2</div>
+            <div class="rank-avatar" style="background:var(--green-darkest);color:var(--green-light);">U</div>
+            <div class="rank-name">Você <span class="you-tag">você</span></div>
+            <div class="rank-seq">Sequência</div>
+          </div>
+          <div class="rank-row">
+            <div class="rank-num">3</div>
+            <div class="rank-avatar" style="background:var(--bg-hover);color:var(--text-muted);">A</div>
+            <div class="rank-name">Amigo</div>
+            <div class="rank-seq">Sequência</div>
+          </div>
+        </div>
+        <div class="cyla-card">
+          <div class="card-label">Conquistas recentes</div>
+          <div class="conquest-row">
+            <div class="conquest-icon" style="background:var(--amber-darker);"><i class="ti ti-star" style="color:var(--amber-main);"></i></div>
+            <div class="conquest-info"><div class="conquest-name">Primeira conquista</div><div class="conquest-desc">Descrição da conquista</div></div>
+            <span class="conquest-badge done">Conquistado</span>
+          </div>
+          <div class="conquest-row">
+            <div class="conquest-icon" style="background:var(--purple-darker);"><i class="ti ti-bolt" style="color:var(--purple-light);"></i></div>
+            <div class="conquest-info"><div class="conquest-name">Segunda conquista</div><div class="conquest-desc">Descrição da conquista</div></div>
+            <span class="conquest-badge pending">Em x dias</span>
+          </div>
+          <div class="conquest-row">
+            <div class="conquest-icon" style="background:var(--bg-hover);"><i class="ti ti-trophy" style="color:var(--text-muted);"></i></div>
+            <div class="conquest-info"><div class="conquest-name">Terceira conquista</div><div class="conquest-desc">Descrição da conquista</div></div>
+            <span class="conquest-badge pending">Em xx dias</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav class="bottom-nav">
+      <a href="home.html" class="bnav-item active"><i class="ti ti-home"></i><span>Início</span></a>
+      <a href="progresso.html" class="bnav-item"><i class="ti ti-chart-bar"></i><span>Progresso</span></a>
+      <a href="registro.html" class="bnav-item"><div class="bnav-fab"><i class="ti ti-plus"></i></div></a>
+      <a href="amigos.html" class="bnav-item"><i class="ti ti-users"></i><span>Amigos</span></a>
+      <a href="perfil.html" class="bnav-item"><i class="ti ti-user-circle"></i><span>Perfil</span></a>
+    </nav>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CYLA - Bem-vindo</title>
+<link rel="stylesheet" href="auth.css">
+<script src="seed.js"></script>
+<script src="presets.js"></script>
+<script src="storage.js"></script>
+<script src="app.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="wrapper scroll">
+  <div class="logo-area">
+    <div class="logo-icone"><i class="ti ti-shield-check"></i></div>
+    <div class="logo-texto">
+      <h2>CYLA</h2>
+      <span>Control Your Life Again</span>
+    </div>
+  </div>
+  <h1 style="font-size:22px;">Olá, Usuário! Seja bem-vindo!</h1>
+  <p class="subtitulo">Configure em segundos e comece ainda hoje.</p>
+
+  <div class="section-label">Qual vício quer controlar?</div>
+  <div class="tipos-grid">
+    <button class="tipo-btn selected" data-preset="tabaco"              onclick="selectTipo(this)">Tabaco</button>
+    <button class="tipo-btn"          data-preset="alcool"              onclick="selectTipo(this)">Álcool</button>
+    <button class="tipo-btn"          data-preset="redes-sociais"       onclick="selectTipo(this)">Redes sociais</button>
+    <button class="tipo-btn"          data-preset="jogos"               onclick="selectTipo(this)">Jogos</button>
+    <button class="tipo-btn"          data-preset="apostas"             onclick="selectTipo(this)">Apostas</button>
+    <button class="tipo-btn"          data-preset="acucar"              onclick="selectTipo(this)">Açúcar / Ultraprocessados</button>
+    <button class="tipo-btn"          data-preset="pornografia"         onclick="selectTipo(this)">Pornografia</button>
+    <button class="tipo-btn"          data-preset="cocaina"             onclick="selectTipo(this)">Cocaína</button>
+    <button class="tipo-btn"          data-preset="maconha"             onclick="selectTipo(this)">Maconha</button>
+    <button class="tipo-btn"          data-preset="compras-compulsivas" onclick="selectTipo(this)">Compras compulsivas</button>
+  </div>
+  <div class="custom-vicio">
+    <i class="ti ti-plus"></i>
+    <input type="text" placeholder="Adicionar vício personalizado...">
+  </div>
+
+  <div class="section-label" style="margin-top:40px;">Meta</div>
+  <div class="meta-tabs">
+    <button class="meta-tab active" onclick="selectTab(this, 'meta-tabs')">Abstinência</button>
+    <button class="meta-tab" onclick="selectTab(this, 'meta-tabs')">Redução</button>
+    <button class="meta-tab" onclick="selectTab(this, 'meta-tabs')">Limite diário</button>
+  </div>
+  <div class="meta-input-row" style="margin-bottom:12px;">
+    <input type="number" value="30" min="1">
+    <span id="meta-unidade" style="margin-left:8px;">dias consecutivos</span>
+  </div>
+  <p class="meta-hint" id="meta-hint">Objetivo: ficar XX dias sem consumir. Após atingir, uma nova meta será sugerida.</p>
+
+  <div class="section-label">Modo de controle</div>
+  <div class="modo-option selected" onclick="selectModo(this)">
+    <div class="radio-dot"></div>
+    <div>
+      <div class="modo-title">Parar de uma vez</div>
+      <div class="modo-desc">Interrupção imediata. Cada dia sem o vício conta para a sequência.</div>
+    </div>
+  </div>
+  <div class="modo-option" onclick="selectModo(this)">
+    <div class="radio-dot"></div>
+    <div>
+      <div class="modo-title">Redução gradual</div>
+      <div class="modo-desc">Diminui o consumo progressivamente até zerar. Você define o ritmo.</div>
+    </div>
+  </div>
+
+
+  <div class="section-label">Gasto financeiro</div>
+  <div style="display:flex;gap:8px;margin-bottom:10px;">
+    <button class="gasto-opc-btn tipo-btn" data-gasto="nao" onclick="toggleGasto(this)" style="flex:1;">Sem gasto</button>
+    <button class="gasto-opc-btn tipo-btn" data-gasto="sim" onclick="toggleGasto(this)" style="flex:1;">Tem gasto</button>
+  </div>
+  <div id="gasto-detalhes">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+      <span style="font-size:13px;color:var(--text-secondary);">R$</span>
+      <input type="number" class="gasto-valor" placeholder="0,00" min="0" step="0.01"
+        style="width:110px;height:40px;text-align:center;background:transparent;border:1.5px solid var(--input-border);border-radius:10px;outline:none;font-size:16px;font-weight:600;color:var(--text);font-family:'DM Sans',sans-serif;">
+      <span style="font-size:13px;color:var(--text-secondary);">por</span>
+    </div>
+    <div class="gasto-tabs" style="display:flex;background:rgba(255,255,255,0.04);border:1px solid rgba(29,158,117,0.4);border-radius:10px;padding:3px;margin-bottom:4px;">
+      <button class="gasto-tab gasto-periodo-btn active" data-periodo="diario" onclick="selectGastoPeriodo(this)">Dia</button>
+      <button class="gasto-tab gasto-periodo-btn" data-periodo="semanal" onclick="selectGastoPeriodo(this)">Semana</button>
+      <button class="gasto-tab gasto-periodo-btn" data-periodo="mensal" onclick="selectGastoPeriodo(this)">Mês</button>
+    </div>
+  </div>
+
+  <div class="section-label">Privacidade – o que amigos veem</div>
+  <div class="toggle-row">
+    <span class="toggle-label">Aparecer no ranking</span>
+    <div class="toggle" onclick="this.classList.toggle('on');"><div class="toggle-dot"></div></div>
+  </div>
+  <div class="toggle-row">
+    <span class="toggle-label">Mostrar tipo de vício</span>
+    <div class="toggle" onclick="this.classList.toggle('on');"><div class="toggle-dot"></div></div>
+  </div>
+
+  <a href="home.html" class="btn" style="margin-top:20px;display:flex;text-decoration:none;">
+    <i class="ti ti-rocket"></i> Tudo pronto – ir para o início
+  </a>
+  <a href="home.html" class="btn-outline" style="display:block;text-align:center;text-decoration:none;line-height:48px;">
+    Pular e configurar depois
+  </a>
+</div>
+<script>
+  function selectTipo(btn) {
+    document.querySelectorAll('.tipo-btn').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    if (btn.dataset.preset) window.atualizarDefaultsPreset(btn.dataset.preset, 'auth');
+    atualizarHint();
+  }
+  function selectTab(btn, group) {
+    btn.closest('.'+group).querySelectorAll('.meta-tab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    atualizarHint();
+  }
+  function atualizarHint() {
+    const tabAtiva = document.querySelector('.meta-tab.active');
+    const tipo  = tabAtiva ? tabAtiva.textContent.trim() : 'Absti';
+    const valor = parseInt(document.querySelector('.meta-input-row input')?.value) || 0;
+    const u = document.getElementById('meta-unidade');
+    const h = document.getElementById('meta-hint');
+    if (!h) return;
+    if (tipo.startsWith('Absti')) {
+      if (u) u.textContent = 'dias consecutivos';
+      h.textContent = 'Objetivo: ficar ' + valor + ' dias sem consumir. Após atingir, uma nova meta será sugerida.';
+    } else if (tipo.startsWith('Redu')) {
+      if (u) u.textContent = 'vezes por semana (máximo)';
+      h.textContent = 'Objetivo: consumir no máximo ' + valor + ' vezes por semana, reduzindo progressivamente.';
+    } else {
+      if (u) u.textContent = 'horas por dia (limite)';
+      h.textContent = 'Objetivo: não ultrapassar ' + valor + ' hora(s) por dia. Cada dia dentro do limite conta.';
+    }
+  }
+  function selectModo(el) {
+    document.querySelectorAll('.modo-option').forEach(m => m.classList.remove('selected'));
+    el.classList.add('selected');
+  }
+  document.addEventListener('DOMContentLoaded', function() {
+    const n = document.querySelector('.meta-input-row input');
+    if (n) n.addEventListener('input', atualizarHint);
+    atualizarHint();
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CYLA - Meu perfil</title>
+<link rel="stylesheet" href="cyla.css">
+<script src="seed.js"></script>
+<script src="presets.js"></script>
+<script src="storage.js"></script>
+<script src="app.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-icon"><i class="ti ti-shield-check"></i></div>
+      <div><div class="brand-name">CYLA</div><div class="brand-sub">Control Your Life Again</div></div>
+    </div>
+    <div class="sidebar-user">
+      <div class="user-avatar">U</div>
+      <div><div class="user-name">Usuário</div><div class="user-handle">@usuario</div></div>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="home.html" class="nav-link"><i class="ti ti-home"></i> Início</a>
+      <a href="progresso.html" class="nav-link"><i class="ti ti-chart-bar"></i> Progresso</a>
+      <a href="habitos.html" class="nav-link"><i class="ti ti-list-check"></i> Meus hábitos</a>
+      <a href="amigos.html" class="nav-link"><i class="ti ti-users"></i> Amigos</a>
+      <a href="perfil.html" class="nav-link active"><i class="ti ti-user-circle"></i> Meu perfil</a>
+    </nav>
+    <div class="sidebar-reg">
+      <a href="registro.html" class="btn-register"><i class="ti ti-plus"></i> Registrar hoje</a>
+    </div>
+  </aside>
+  <div class="main-content">
+    <div class="topbar">
+      <div class="topbar-brand">
+        <div class="brand-icon"><i class="ti ti-shield-check"></i></div>
+        <span class="topbar-name">CYLA</span>
+      </div>
+      <div class="topbar-avatar">U</div>
+    </div>
+    <div class="page">
+      <div class="page-title" style="margin-bottom:4px;">Meu perfil</div>
+      <div class="profile-card">
+        <div class="user-avatar" style="width:48px;height:48px;font-size:18px;">U</div>
+        <div class="profile-info">
+          <div class="profile-name">Usuário</div>
+          <div class="profile-handle">@usuario</div>
+          <div class="profile-since">Membro desde mar 2026</div>
+        </div>
+        <a href="editar-perfil.html" class="profile-edit">Editar</a>
+      </div>
+      <div class="cyla-card">
+        <div class="card-label">Meus vícios</div>
+        <a href="editar-vicio.html" class="habit-row">
+          <div class="habit-color" style="background:var(--green-main);"></div>
+          <div class="habit-info"><div class="habit-name">Cigarro</div><div class="habit-meta">Abstinência · Meta: 30 dias</div></div>
+          <i class="ti ti-chevron-right habit-arrow"></i>
+        </a>
+        <a href="editar-vicio.html" class="habit-row">
+          <div class="habit-color" style="background:var(--purple-main);"></div>
+          <div class="habit-info"><div class="habit-name">Redes sociais</div><div class="habit-meta">Limite diário · Meta: 2h/dia</div></div>
+          <i class="ti ti-chevron-right habit-arrow"></i>
+        </a>
+        <a href="adicionar-vicio.html" class="add-btn">
+          <i class="ti ti-plus"></i><span>Adicionar vício</span>
+        </a>
+      </div>
+      <div class="cyla-card">
+        <div class="card-label">Privacidade</div>
+        <div class="toggle-row-app">
+          <div class="toggle-row-info">
+            <div class="toggle-row-label">Aparecer no ranking</div>
+            <div class="toggle-row-sub">Seus amigos podem te ver na classificação</div>
+          </div>
+          <div class="toggle-app on" onclick="this.classList.toggle('on');"><div class="toggle-app-dot"></div></div>
+        </div>
+        <div style="margin-top:10px;">
+          <div style="font-size:11px;color:var(--text-muted);margin-bottom:8px;">Mostrar tipo de vício para amigos</div>
+          <div class="toggle-row-app">
+            <div class="toggle-row-info">
+              <div style="display:flex;align-items:center;gap:6px;">
+                <div style="width:8px;height:8px;border-radius:50%;background:var(--green-main);"></div>
+                <div class="toggle-row-label">Cigarro</div>
+              </div>
+            </div>
+            <div class="toggle-app on" onclick="this.classList.toggle('on');"><div class="toggle-app-dot"></div></div>
+          </div>
+          <div class="toggle-row-app">
+            <div class="toggle-row-info">
+              <div style="display:flex;align-items:center;gap:6px;">
+                <div style="width:8px;height:8px;border-radius:50%;background:var(--purple-main);"></div>
+                <div class="toggle-row-label">Redes sociais</div>
+              </div>
+            </div>
+            <div class="toggle-app" onclick="this.classList.toggle('on');"><div class="toggle-app-dot"></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="cyla-card">
+        <div class="card-label">Aparência</div>
+        <div class="tema-row">
+          <div class="tema-label">Tema</div>
+          <div class="tema-value">Sistema <i class="ti ti-chevron-right"></i></div>
+        </div>
+      </div>
+      <div class="cyla-card">
+        <div class="card-label">Conta</div>
+        <button class="btn-secondary-app" id="btn-sair" style="margin-top:0;">Sair da conta</button>
+        <button class="btn-danger" id="btn-excluir-conta">Excluir conta</button>
+      </div>
+    </div>
+    <nav class="bottom-nav">
+      <a href="home.html" class="bnav-item"><i class="ti ti-home"></i><span>Início</span></a>
+      <a href="progresso.html" class="bnav-item"><i class="ti ti-chart-bar"></i><span>Progresso</span></a>
+      <a href="registro.html" class="bnav-item"><div class="bnav-fab"><i class="ti ti-plus"></i></div></a>
+      <a href="amigos.html" class="bnav-item"><i class="ti ti-users"></i><span>Amigos</span></a>
+      <a href="perfil.html" class="bnav-item active"><i class="ti ti-user-circle"></i><span>Perfil</span></a>
+    </nav>
+  </div>
+</div>
+</body>
+</html>

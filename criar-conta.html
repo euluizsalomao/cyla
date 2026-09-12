@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CYLA - Criar conta</title>
+<link rel="stylesheet" href="auth.css">
+<script src="seed.js"></script>
+<script src="presets.js"></script>
+<script src="storage.js"></script>
+<script src="app.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="wrapper">
+  <div class="logo-area">
+    <div class="logo-icone"><i class="ti ti-shield-check"></i></div>
+    <div class="logo-texto">
+      <h2>CYLA</h2>
+      <span>Control Your Life Again</span>
+    </div>
+  </div>
+  <h1>Criar conta</h1>
+  <p class="subtitulo">Comece sua jornada hoje</p>
+  <form id="form-criar-conta">
+    <div class="input-row" style="margin-top:18px;margin-bottom:18px;">
+      <div class="input-box" style="margin:0;">
+        <input type="text" id="cc-nome" placeholder="Nome" required>
+        <i class="ti ti-user"></i>
+      </div>
+      <div class="input-box" style="margin:0;">
+        <input type="text" id="cc-sobrenome" placeholder="Sobrenome" required>
+        <i class="ti ti-user"></i>
+      </div>
+    </div>
+    <div class="input-box">
+      <input type="text" id="cc-usuario" placeholder="Nome de usuário" required>
+      <i class="ti ti-at"></i>
+    </div>
+    <div class="input-box">
+      <input type="email" id="cc-email" placeholder="E-mail" required>
+      <i class="ti ti-mail"></i>
+    </div>
+    <div class="input-box">
+      <input type="password" id="cc-senha" placeholder="Senha" required>
+      <i class="ti ti-lock"></i>
+    </div>
+    <div class="strength-bar" id="strength-bar">
+      <div class="strength-seg" id="seg1"></div>
+      <div class="strength-seg" id="seg2"></div>
+      <div class="strength-seg" id="seg3"></div>
+      <div class="strength-seg" id="seg4"></div>
+    </div>
+    <div class="input-box">
+      <input type="password" id="cc-confirmar" placeholder="Confirmar senha" required>
+      <i class="ti ti-lock-check"></i>
+    </div>
+    <div id="cc-erro" style="display:none;color:#D85A30;font-size:13px;text-align:center;margin:4px 0;"></div>
+    <p class="terms">Ao criar uma conta, você concorda com nossos<br>
+      <a href="#">Termos de Uso</a> e <a href="#">Política de Privacidade</a>.</p>
+    <button type="submit" class="btn">Criar conta</button>
+  </form>
+  <div class="register-link">
+    <p>Já tem conta? <a href="login.html">Entrar</a></p>
+  </div>
+</div>
+<script>
+  const senhaInput = document.getElementById('cc-senha');
+  const segs = ['seg1','seg2','seg3','seg4'].map(id => document.getElementById(id));
+  senhaInput.addEventListener('input', () => {
+    const v = senhaInput.value;
+    let score = 0;
+    if (v.length >= 6) score++;
+    if (v.length >= 10) score++;
+    if (/[A-Z]/.test(v) && /[0-9]/.test(v)) score++;
+    if (/[^A-Za-z0-9]/.test(v)) score++;
+    segs.forEach((s,i) => {
+      s.className = 'strength-seg';
+      if (i < score) s.classList.add(score <= 1 ? 'fraco' : score <= 2 ? 'medio' : 'forte');
+    });
+  });
+</script>
+</body>
+</html>
